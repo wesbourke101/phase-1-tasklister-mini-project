@@ -8,23 +8,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
   //event listener with arrow function to listen for the submit 
   form.addEventListener('submit', (e) => {
-    e.preventDefault()
-    //console.log(e)
 
+    //prevent page from loading
+    e.preventDefault()
+  
     //assigning text box text a veriable.
     const textValue = input1.value;
 
-    //creating out LI tags
+    //creating LI tags
     let li = document.createElement(`li`)
     divList.append(li);
-    console.log(divList)
 
     //appending text value in the LI
     li.append(textValue)
 
     // create delete button
     let erase = document.createElement('button')
-    erase.textContent = 'X';
+    erase.textContent = ' X ';
     //append the button
     li.append(erase);
 
@@ -37,25 +37,48 @@ document.addEventListener("DOMContentLoaded", () => {
     let list = document.createElement('select')
     li.append(list)
 
-    //drop down red
+    let dropblank = document.createElement('option')
+    dropblank.value = 'none'
+    dropblank.text = 'Pick Priority'
+    list.append(dropblank)
+
+    //drop down green
     let dropDown = document.createElement('option')
-    dropDown.value = 'redID'
-    dropDown.text = 'Red'
+    dropDown.value = 'greenID'
+    dropDown.text = 'Low Priority'
     list.append(dropDown)
 
-    //drop down blue
+    //drop down yellow
     let dropDown1 = document.createElement('option')
-    dropDown1.value = 'blueID'
-    dropDown1.text = 'Blue'
+    dropDown1.value = 'yellowID'
+    dropDown1.text = 'Medium Priority'
     list.append(dropDown1)
 
-    //drop down yellow
+    //drop down red
     let dropDown2 = document.createElement('option')
-    dropDown2.value = 'yellowID'
-    dropDown2.text = 'Yellow'
+    dropDown2.value = 'redID'
+    dropDown2.text = 'High Priority'
     list.append(dropDown2)
 
-    console.log(list)
+    list.addEventListener('change', (e) => {
+      const colorValue = e.target.value;
+      if (colorValue === 'redID') {
+        e.target.parentNode.style.color = "red"
+        console.log(e.target.parentNode)
+      }
+      if (colorValue === 'yellowID') {
+        e.target.parentNode.style.color = "yellow"
+      }
+      if (colorValue === 'greenID') {
+        e.target.parentNode.style.color = "green"
+      }
+      if (colorValue === 'none') {
+        e.target.parentNode.style.color = "black"
+      }
+
+    } )
+
+    //console.log(list)
     //append list
   });
 });
