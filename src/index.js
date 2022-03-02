@@ -114,6 +114,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const createSelector = document.createElement('select')
     li.append(createSelector)
 
+      for (let i = 0; i < 4; i++) {
+        let selectorITEM = document.createElement('option')
+        selectorITEM[i].textContent = 'High Priority'
+        selectorITEM[i].value = `${i}id`
+        createSelector.append()
+      }
     //create delete event listener and delete name
     deleteBttn.addEventListener('click', (e) => { 
       li.remove()
