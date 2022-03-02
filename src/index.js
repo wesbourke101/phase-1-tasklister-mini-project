@@ -85,7 +85,7 @@
 //   });
 // });
 
-
+////look at the commented out code. It goes farther in the lesson. 
 document.addEventListener("DOMContentLoaded", () => {
 
   const form = document.querySelector('#create-task-form')
@@ -114,11 +114,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const createSelector = document.createElement('select')
     li.append(createSelector)
 
-      for (let i = 0; i < 4; i++) {
+    const arrayMESSAGE = ['High Priority', 'Medium Priority', "Low Priority" ]
+
+      for (let i = 0; i < 3; i++) {
         let selectorITEM = document.createElement('option')
-        selectorITEM[i].textContent = 'High Priority'
-        selectorITEM[i].value = `${i}id`
-        createSelector.append()
+        selectorITEM.textContent = arrayMESSAGE[i]; 
+        selectorITEM.id = `${i}id`
+        createSelector.append(selectorITEM)
       }
     //create delete event listener and delete name
     deleteBttn.addEventListener('click', (e) => { 
