@@ -111,7 +111,7 @@ document.addEventListener("DOMContentLoaded", () => {
     li.append(deleteBttn);
 
     //create a list
-    const createSelector = document.createElement('selector')
+    const createSelector = document.createElement('select')
     li.append(createSelector)
 
     //create delete event listener and delete name
